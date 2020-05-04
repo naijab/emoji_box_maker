@@ -12,7 +12,7 @@
     />
     <style>
       body {
-        margin-top: 5%;
+        padding: 5%;
       }
       #wrapper {
         width: 300px;
@@ -60,129 +60,131 @@
     <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
   </head>
   <body>
-    <div id="wrapper">
-      <h1>Emoji Box Maker</h1>
-      <div id="canvas-frame">
-        <div id="foreground"></div>
-        <img id="image-item" src="/image/demo_image.png" alt="" width="150" />
-        <div id="background-item"></div>
-        <div id="background"></div>
+    <div class="container">
+      <div id="wrapper">
+        <h1>Emoji Box Maker</h1>
+        <div id="canvas-frame">
+          <div id="foreground"></div>
+          <img id="image-item" src="/image/demo_image.png" alt="" width="150" />
+          <div id="background-item"></div>
+          <div id="background"></div>
+        </div>
       </div>
-    </div>
 
-    <div id="control-frame">
-      <table class="table">
-        <tbody>
-          <tr>
-            <td style="width: 30%;">
-              เลือกรูป (File)
-            </td>
-            <td>
-              <div class="custom-file">
-                <input type="file" class="custom-file-input" id="files" />
-                <label class="custom-file-label" for="customFile"
-                  >เลือกรูป</label
-                >
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              ขนาด (Size)
-            </td>
-            <td>
-              <input
-                id="size"
-                type="range"
-                name="size"
-                min="0.00"
-                step="1"
-                max="100"
-                value="25"
-                class="custom-range"
-                onchange="updateSize(this.value);"
-              />
-            </td>
-          </tr>
-          <tr>
-            <td>แนวนอน (X)</td>
-            <td>
-              <input
-                id="x-position"
-                name="x-position"
-                type="range"
-                min="0.00"
-                step="1"
-                max="100"
-                value="25"
-                class="custom-range"
-                onchange="updateXPosition(this.value);"
-              />
-            </td>
-          </tr>
-          <tr>
-            <td>
-              แนวตั้ง (Y)
-            </td>
-            <td>
-              <input
-                id="y-position"
-                name="y-position"
-                type="range"
-                min="0.00"
-                step="1"
-                max="100"
-                value="25"
-                class="custom-range"
-                onchange="updateYPosition(this.value);"
-              />
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <div id="control-frame">
+        <table class="table">
+          <tbody>
+            <tr>
+              <td style="width: 30%;">
+                เลือกรูป (File)
+              </td>
+              <td>
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input" id="files" />
+                  <label class="custom-file-label" for="customFile"
+                    >เลือกรูป</label
+                  >
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                ขนาด (Size)
+              </td>
+              <td>
+                <input
+                  id="size"
+                  type="range"
+                  name="size"
+                  min="0.00"
+                  step="1"
+                  max="100"
+                  value="25"
+                  class="custom-range"
+                  onchange="updateSize(this.value);"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>แนวนอน (X)</td>
+              <td>
+                <input
+                  id="x-position"
+                  name="x-position"
+                  type="range"
+                  min="0.00"
+                  step="1"
+                  max="100"
+                  value="25"
+                  class="custom-range"
+                  onchange="updateXPosition(this.value);"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                แนวตั้ง (Y)
+              </td>
+              <td>
+                <input
+                  id="y-position"
+                  name="y-position"
+                  type="range"
+                  min="0.00"
+                  step="1"
+                  max="100"
+                  value="25"
+                  class="custom-range"
+                  onchange="updateYPosition(this.value);"
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
 
-      <hr />
-      <br />
-      <button
-        onclick="download(this);"
-        type="button"
-        class="btn btn-primary btn-block"
-      >
-        บันทึกรูป (Download)
-      </button>
-      <br /><br />
-      <hr />
-      <button
-        onclick="resetImage();"
-        type="button"
-        class="btn btn-danger btn-block"
-      >
-        เริ่มใหม่ (Reset)
-      </button>
-      <hr />
-      <h5 style="text-align: center;">
-        Powered by : <a href="https://naijab.com">naijab.com</a> <br />
-        Source Code:
-        <a href="https://github.com/naijab/emoji-box-maker">github</a>
-      </h5>
-      <hr />
-      <h6>ความเป็นส่วนตัว - Privacy Policies</h6>
-      <li>
-        รูปภาพของท่านจะไม่ถูกอัปโหลดไปยัง Server ใดๆ
-        รูปที่เลือกจะค้างอยู่ในหน้าเว็บ html เท่านั้น
-      </li>
-      <li>Your image not upload to server. Just temporary on web html.</li>
-      <hr />
-      <h6>Icon Credit</h6>
-      <div style="text-align: center;">
-        Icons made by
-        <a href="https://www.flaticon.com/authors/freepik" title="Freepik"
-          >Freepik</a
+        <hr />
+        <br />
+        <button
+          onclick="download(this);"
+          type="button"
+          class="btn btn-primary btn-block"
         >
-        from
-        <a href="https://www.flaticon.com/" title="Flaticon"
-          >www.flaticon.com</a
+          บันทึกรูป (Download)
+        </button>
+        <br /><br />
+        <hr />
+        <button
+          onclick="resetImage();"
+          type="button"
+          class="btn btn-danger btn-block"
         >
+          เริ่มใหม่ (Reset)
+        </button>
+        <hr />
+        <h5 style="text-align: center;">
+          Powered by : <a href="https://naijab.com">naijab.com</a> <br />
+          Source Code:
+          <a href="https://github.com/naijab/emoji-box-maker">github</a>
+        </h5>
+        <hr />
+        <h6>ความเป็นส่วนตัว - Privacy Policies</h6>
+        <li>
+          รูปภาพของท่านจะไม่ถูกอัปโหลดไปยัง Server ใดๆ
+          รูปที่เลือกจะค้างอยู่ในหน้าเว็บ html เท่านั้น
+        </li>
+        <li>Your image not upload to server. Just temporary on web html.</li>
+        <hr />
+        <h6>Icon Credit</h6>
+        <div style="text-align: center;">
+          Icons made by
+          <a href="https://www.flaticon.com/authors/freepik" title="Freepik"
+            >Freepik</a
+          >
+          from
+          <a href="https://www.flaticon.com/" title="Flaticon"
+            >www.flaticon.com</a
+          >
+        </div>
       </div>
     </div>
 
