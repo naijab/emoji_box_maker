@@ -27,8 +27,7 @@
         overflow: hidden;
       }
       #control-frame {
-        width: 300px;
-        height: 300px;
+        width: 380px;
         margin: 0 auto;
         position: relative;
       }
@@ -75,11 +74,16 @@
       <table class="table">
         <tbody>
           <tr>
-            <td>
+            <td style="width: 30%;">
               เลือกรูป (File)
             </td>
             <td>
-              <input type="file" id="files" />
+              <div class="custom-file">
+                <input type="file" class="custom-file-input" id="files" />
+                <label class="custom-file-label" for="customFile"
+                  >เลือกรูป</label
+                >
+              </div>
             </td>
           </tr>
           <tr>
@@ -95,7 +99,7 @@
                 step="1"
                 max="100"
                 value="25"
-                class="white"
+                class="custom-range"
                 onchange="updateSize(this.value);"
               />
             </td>
@@ -111,7 +115,7 @@
                 step="1"
                 max="100"
                 value="25"
-                class="white"
+                class="custom-range"
                 onchange="updateXPosition(this.value);"
               />
             </td>
@@ -129,7 +133,7 @@
                 step="1"
                 max="100"
                 value="25"
-                class="white"
+                class="custom-range"
                 onchange="updateYPosition(this.value);"
               />
             </td>
@@ -144,10 +148,21 @@
         type="button"
         class="btn btn-primary btn-block"
       >
-        Download
+        บันทึกรูป (Download)
       </button>
-      <br />
-      <h5>Powered by : <a href="https://naijab.com">naijab.com</a></h5>
+      <br /><br />
+      <hr />
+      <button
+        onclick="resetImage();"
+        type="button"
+        class="btn btn-danger btn-block"
+      >
+        เริ่มใหม่ (Reset)
+      </button>
+      <hr />
+      <h5 style="text-align: center;">
+        Powered by : <a href="https://naijab.com">naijab.com</a>
+      </h5>
     </div>
 
     <script>
@@ -187,10 +202,16 @@
         reader.readAsDataURL(this.files[0]);
       }
 
+      function resetImage() {
+        image.src = "/image/demo_image.png";
+        image.style.left = "25%";
+        image.style.top = "25%";
+      }
+
       function download() {
         html2canvas(canvasFrame).then(function (canvas) {
           canvas.toBlob(function (blob) {
-            saveAs(blob, "emoji-image.png");
+            saveAs(blob, "emoji-box-" + Date.now() + ".png");
           });
         });
       }
